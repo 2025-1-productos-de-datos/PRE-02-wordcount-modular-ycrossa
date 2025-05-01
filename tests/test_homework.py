@@ -10,11 +10,11 @@ def test_homework():
     for path in [
         "homework/src",
         "homework/src/_internals",
-        "homework/src/_internals/count_words_in_folder.py",
-        "homework/src/_internals/create_output_folder.py",
-        "homework/src/_internals/orchestrate_word_count.py",
-        "homework/src/_internals/parse_arguments.py",
-        "homework/src/_internals/save_counting_results.py",
+        "homework/src/_internals/count_words.py",
+        "homework/src/_internals/preprocess_lines.py",
+        "homework/src/_internals/read_all_lines.py",
+        "homework/src/_internals/split_into_words.py",
+        "homework/src/_internals/write_word_counts.py",
     ]:
         if not os.path.exists(path):
             raise Exception(f"'{path}' directory does not exist")
