@@ -7,24 +7,21 @@ import subprocess
 def test_homework():
     """Test Word Count"""
 
-    if not os.path.exists("homework/src/"):
-        raise Exception("homework/src/ directory does not exist")
-
-    if not os.path.exists("homework/src/_internals/"):
-        raise Exception("homework/src/_internals/ directory does not exist")
-
-    if not os.path.exists("homework/src/_internals/file_operations.py"):
-        raise Exception("homework/src/_internals/file_operations.py does not exist")
-
-    if not os.path.exists("homework/src/_internals/word_count.py"):
-        raise Exception("homework/src/_internals/word_count.py does not exist")
-
-    if not os.path.exists("homework/src/_internals/results.py"):
-        raise Exception("homework/src/_internals/results.py does not exist")
+    for path in [
+        "homework/src",
+        "homework/src/_internals",
+        "homework/src/_internals/count_words_in_folder.py",
+        "homework/src/_internals/create_output_folder.py",
+        "homework/src/_internals/orchestrate_word_count.py",
+        "homework/src/_internals/parse_arguments.py",
+        "homework/src/_internals/save_counting_results.py",
+    ]:
+        if not os.path.exists(path):
+            raise Exception(f"'{path}' directory does not exist")
 
     try:
         subprocess.run(
-            ["python3", "-m", "homework", "10", "data/input", "data/output"],
+            ["python3", "-m", "homework", "data/input", "data/output"],
             check=True,
         )
     except subprocess.CalledProcessError as e:
