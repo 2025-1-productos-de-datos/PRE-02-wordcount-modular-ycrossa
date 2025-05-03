@@ -1,12 +1,12 @@
 # obtain a list of files in the input directory
 
+from homework.src._internals.preprocess_lines import preprocess_lines
 from homework.src._internals.read_all_lines import read_all_lines
 from homework.src._internals.write_count_words import write_count_words
 
 
 def main():
 
-    ## mover a la funcion "read_all_lines"
     all_lines = read_all_lines()
 
     ## mover a "preprocess_lines"
@@ -33,11 +33,6 @@ def main():
 
     ##
     write_count_words(counter)
-
-
-def preprocess_lines(all_lines):
-    all_lines = [line.lower().strip() for line in all_lines]
-    return all_lines
 
 
 if __name__ == "__main__":
